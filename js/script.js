@@ -4,11 +4,13 @@ console.log('Wylosowana liczba to: ' + randomNumber);
 
 let computerMove = 'nieznany ruch';
 
-if (randomNumber == 1) {
+if (randomNumber === 1) {
   computerMove = 'kamień';
-} else if (randomNumber == 2) {
+}
+else if (randomNumber === 2) {
   computerMove = 'papier';
-} else if (randomNumber == 3) {
+}
+else if (randomNumber === 3) {
   computerMove = 'nożyce';
 }
 
@@ -21,33 +23,34 @@ console.log('Gracz wpisał: ' + playerInput);
 
 let playerMove = 'nieznany ruch';
 
-if(playerInput == '1'){
+if(playerInput === '1') {
   playerMove = 'kamień';
-} else if (playerInput == '2') {
+}
+else if (playerInput === '2') {
   playerMove = 'papier';
-} else if (playerInput == '3') {
+}
+else if (playerInput === '3') {
   playerMove = 'nożyce';
 }
 
-printMessage('Ja: ' + playerMove);
+printMessage('Gracz: ' + playerMove);
 
 
 let result = '';
 
-if (playerMove == computerMove) {
-  result = 'Remis';
-} else if (playerMove == 'kamień' && computerMove == 'papier') {
-  result = 'Komputer wygrał';
-} else if (playerMove == 'kamień' && computerMove == 'nożyce') {
-  result = 'Gracz wygrał';
-} else if (playerMove == 'papier' && computerMove == 'kamień') {
-  result = 'Gracz wygrał';
-} else if (playerMove == 'papier' && computerMove == 'nożyce') {
-  result = 'Komputer wygrał';
-} else if (playerMove == 'nożyce' && computerMove == 'papier') {
-  result = 'Gracz wygrał';
-} else if (playerMove == 'nożyce' && computerMove == 'kamień') {
-  result = 'Komputer wygrał';
+if (playerMove === 'nieznany ruch') {
+  printMessage('Zły input, wpisz 1, 2 lub 3');
+}
+else {
+  if (playerMove === computerMove) {
+    result = 'Remis';
+  }
+  else if ( (playerMove === 'kamień' && computerMove === 'papier') || (playerMove === 'papier' && computerMove === 'nożyce') || (playerMove === 'nożyce' && computerMove === 'kamień') ) {
+    result = 'Komputer wygrał';
+  }
+  else {
+    result = 'Gracz wygrał'
+  }
 }
 
 printMessage(result)
